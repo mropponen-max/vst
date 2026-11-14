@@ -31,7 +31,8 @@ jobs:
           ls -la out
           cd out && for p in *.vst3; do ditto -c -k --keepParent "$p" "${p%.vst3}-macOS.zip"; done
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload
+        uses: actions/upload-artifact@v4
         with:
           name: MultiRuby-macOS
-          path:
+          path: "out/*-macOS.zip"
